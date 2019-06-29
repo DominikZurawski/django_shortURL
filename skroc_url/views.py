@@ -29,3 +29,12 @@ def inputURL_view(request):
 			   "form" : form,
 			   }
 	return render(request, "skroc_url/inputURL.html", context)	
+
+def outputURL_view(request):
+	
+	return render(request, "skroc_url/outputURL.html", {})
+
+def link(request, shortURL):
+    link =  QueryURL.objects.get(shortURL=shortURL)
+    return HttpResponseRedirect(link.link)
+
