@@ -1,27 +1,40 @@
-from django.shortcuts import render, redirect
-from .models import Link
-from .forms import LinkShortener
-from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.template import loader
 
-# Create your views here.
+from .models import QueryURL,AnswerURL
+from skroc_url.forms import InputURLForm,OutputURLForm
 
+
+def home_view(request,*args,**kwargs):
+	#return HttpResponse("<h1>Hello World</h1>")
+	context ={"title" : "ZADANIE Rekrutacyjne:"}
+	return render(request,"skroc_url/home.html",context)
 
 def index(request):
-    if request.method == 'POST':
-        form = LinkShortener(request.POST)
-        if form.is_valid():
-            link = form.save(commit=False)
-            form.save()
-            return render(request, 'skracacz/skrocone.html', {'link': link})
-    else:
-        form = LinkShortener()
-    return render(request, 'skracacz/index.html')
+	return render(request, 'skroc_url/index.html', context)
 
+def inputURL_view(request):   
+	form = InputURLForm(request.POST or None)
+	if form.is_valid():
+		OutputURLForm.shortURL = form.save(commit=False)
+		link = form.save(commit=False)
+		form.save()
+		form = InputURLForm
+		return render(request, 'skroc_url/outputURL.html', {"link": OutputURLForm.shortURL,"info" : "Twój link! "})
+	else: 
+		form = InputURLForm()		
+			
+	context = {"description" : "Wklej adres URL:",
+			   "form" : form,
+			   }
+	return render(request, "skroc_url/inputURL.html", context)	
 
-def skrocone(request):
-    return render(request, 'skracacz/skrocone.html')
+def outputURL_view(request):
+	
+	return render(request, "skroc_url/outputURL.html", {})
 
-
-def link(request, short):
-    link = Link.objects.get(short=short)
+def link(request, shortURL):
+    link =  QueryURL.objects.get(shortURL=shortURL)
     return HttpResponseRedirect(link.link)
+
