@@ -25,7 +25,7 @@ SECRET_KEY = '27d2!0i*anyjap7=z9e33gch&fvf88*+53oz_l-&geqa_f@-_-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [https://skroty.herokuapp.com/]
 
 
 # Application definition
