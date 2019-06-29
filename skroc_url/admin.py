@@ -4,4 +4,4 @@ from django.contrib import admin
 from .models import QueryURL, AnswerURL
 
 admin.site.register(QueryURL)
-admin.site.register(AnswerURL)
+#admin.site.register(AnswerURL)
