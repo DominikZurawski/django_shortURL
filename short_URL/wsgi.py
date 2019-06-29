@@ -1,5 +1,5 @@
 """
-WSGI config for django_skroty project.
+WSGI config for short_URL project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'django_skroty.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'short_URL.settings')
 
 application = get_wsgi_application()
