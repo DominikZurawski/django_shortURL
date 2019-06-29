@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ZADANIE Rekrutacyjnet</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+    
+</head>
+<body>
+	{% include 'skroc_url/index.html' %}
+	<h1>{{title|capfirst}}</h1>
+	{% block content %}
+
+
+	Przygotować aplikację skracającą URLe. Aplikacja ma za zadanie:
+	<ul>
+		<li>pobierać od (anonimowego) użytkownika URL</li>
+		<li>generować skrócony URL w formie &lt;twoja domena&gt;/&lt;skrót&gt;</li>
+		<li>podawać go użytkownikowi </li>
+		<li>w interfejsie admina ma być widoczna lista wszystkich URLi wraz z ich wartością </li>
+		<li>po przejściu do &lt;twoja domena&gt;/&lt;skrót&gt; użytkownik ma być przekierowany na pierwotny adres podany do skrócenia. </li>
+	</ul> 	
+	Technologie do wykorzystania:<ul> 
+		<li>Django </li></ul>
+	Dodatkowym atutem będzie: <ul> 
+		<li>Opublikowanie swojego kodu w prywatnym repozytorium (github, bitbucket) oraz udostępnienie nam go poprzez ten serwis. </li>
+		<li>Opublikowanie swojej aplikacji w internecie – na dowolnym darmowym hostingu.</li></ul>
+	W razie nie publikowania kodu na githubie/bitbuckecie/czyminnym prosimy o przesłanie go mailem. 
+		
+	{% endblock %}
+
+</body>
+</html>
+
+
+

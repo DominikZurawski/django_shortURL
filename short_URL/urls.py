@@ -1,4 +1,4 @@
-"""short_URL URL Configuration
+"""django_skroty URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -14,8 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+
+from skroc_url.views import home_view,inputURL_view,outputURL_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('skracanie/', inputURL_view),
+    path('skrocone/', outputURL_view),
+    path('', home_view,name='home'),
 ]
