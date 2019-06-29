@@ -1,0 +1,13 @@
+{% extends 'skroc_url/home.html' %}
+{% load static %}
+{% block content %}
+
+<div style="width: 40rem; margin:0 auto; margin-top:15vh; text-align:center;">
+	<h1>{{info}}</h1>
+	<h4 ><a href="#" >{{ link }}</a></h4>
+    <h3 >skrócono do:</h3>
+    <h3><a href="/{{ link.shortURL }}" class="card-link">{{ link.shortURL }}</a> <i class="far fa-copy" data-clipboard-text="{{ link.short }}"></i></h3>
+
+</div>
+
+{% endblock %}

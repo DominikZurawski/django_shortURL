@@ -1,0 +1,20 @@
+{% extends 'skroc_url/home.html' %}
+
+{% block content %}
+
+<div class="form-group" style="width:50vw; margin:0 auto; margin-top:5vh;">
+	<h1>{{description}}</h1>
+	<form method="POST" > 
+
+		{% csrf_token %}
+
+		{{form.as_p }}
+	<input type="submit" value= "Konwertuj" style="margin-top:2vh; width:50%" />
+	 
+	 <h1>{{info}}</h1>
+	 
+
+
+</form>
+ </div>
+{% endblock %}
